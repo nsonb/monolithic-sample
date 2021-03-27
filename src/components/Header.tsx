@@ -1,25 +1,16 @@
 import styled from 'styled-components'
+import { Heading1 } from './common/Typography'
 
-const Button = styled.div`
-  background-color: black;
-  color: white;
-  height: 2rem;
-  width: 5rem;
-`
-
+const Container = styled.div`
+    width: 100%;
+    height: 5rem;
+    background-color: ${props => props.theme.secondary}
+  `
 const Header = () => {
-
-  const style: React.CSSProperties = {
-    width: '100%',
-    height: '5rem',
-    backgroundColor: 'skyblue'
-  }
-
   return (
-    <div style= {style}>
-      <Button>I am button</Button>
-      I am Header
-    </div>
+    <Container>
+      <Heading1>phoking</Heading1>
+    </Container>
   )
 }
 

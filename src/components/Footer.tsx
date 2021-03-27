@@ -1,3 +1,5 @@
+import { Heading1 } from './common/Typography'
+
 const Footer = () => {
 
   const style: React.CSSProperties = {
@@ -8,7 +10,7 @@ const Footer = () => {
 
   return (
     <div style= {style}>
-      I am Footer
+      <Heading1>I am Footer</Heading1>
     </div>
   )
 }
