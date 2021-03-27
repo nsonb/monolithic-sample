@@ -5,4 +5,6 @@ export const Heading1 = styled.h1`
   font-family: 'Oleo Script Swash Caps', cursive;
   font-weight: 700;
   height: 3rem;
+  width: fit-content;
+  margin: 0;
 `
