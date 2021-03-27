@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Intro from './components/Intro'
 
 import { ThemeProvider } from 'styled-components'
 import { light_theme } from './components/common/Theme'
@@ -10,20 +11,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto';
+    font-family: 'Lato', sans-serif;
   }
 `
 
 const App = () => {
   const bodyStyle: React.CSSProperties = {
-    height: '70vh'
+    height: '70vh',
+    padding: '.5rem'
   }
   return (
     <ThemeProvider theme = {light_theme}>
       <GlobalStyle />
       <Header></Header>
       <div style={bodyStyle}>
-        I am App
+        <Intro/>
       </div>
       <Footer></Footer>
     </ThemeProvider>
