@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Heading1 } from './common/Typography'
+import { Heading2 } from './common/Typography'
 
 const Container = styled.div`
     width: 100%;
@@ -9,7 +9,7 @@ const Container = styled.div`
 const Header = () => {
   return (
     <Container>
-      <Heading1>phoking</Heading1>
+      <Heading2>phoking</Heading2>
     </Container>
   )
 }

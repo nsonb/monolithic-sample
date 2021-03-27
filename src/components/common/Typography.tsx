@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Heading1 = styled.h1`
+export const Heading2 = styled.h2`
   color: ${props => props.theme.white};
   font-family: 'Oleo Script Swash Caps', cursive;
   font-weight: 700;

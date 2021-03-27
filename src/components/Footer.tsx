@@ -1,4 +1,4 @@
-import { Heading1 } from './common/Typography'
+import { Heading2 } from './common/Typography'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -11,7 +11,7 @@ const Container = styled.div`
 const Footer = () => {
   return (
     <Container>
-      <Heading1>it's phoking good</Heading1>
+      <Heading2>it's phoking good</Heading2>
     </Container>
   )
 }

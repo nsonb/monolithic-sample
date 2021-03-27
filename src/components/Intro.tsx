@@ -9,6 +9,7 @@ const IntroContainer = styled.div`
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    filter: sepia(.2)
   }
 `
 
