@@ -2,7 +2,9 @@ export const light_theme = {
   primary: '#A67A44',
   secondary: '#61733C',
   light: '#F2E3D5',
-  black: '#0D0D0D'
+  dark: '#0D0D0D',
+  white: '#FFF',
+  black: '#000'
 }
 
 export const dark_theme = {

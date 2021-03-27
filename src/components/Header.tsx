@@ -3,8 +3,8 @@ import { Heading1 } from './common/Typography'
 
 const Container = styled.div`
     width: 100%;
-    height: 5rem;
-    background-color: ${props => props.theme.secondary}
+    background-color: ${props => props.theme.white};
+    padding: .5rem;
   `
 const Header = () => {
   return (
