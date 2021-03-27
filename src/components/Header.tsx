@@ -1,3 +1,12 @@
+import styled from 'styled-components'
+
+const Button = styled.div`
+  background-color: black;
+  color: white;
+  height: 2rem;
+  width: 5rem;
+`
+
 const Header = () => {
 
   const style: React.CSSProperties = {
@@ -8,6 +17,7 @@ const Header = () => {
 
   return (
     <div style= {style}>
+      <Button>I am button</Button>
       I am Header
     </div>
   )
