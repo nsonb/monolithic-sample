@@ -1,6 +1,15 @@
 const Header = () => {
+
+  const style: React.CSSProperties = {
+    width: '100%',
+    height: '5rem',
+    backgroundColor: 'skyblue'
+  }
+
   return (
-    <div>I am Header</div>
+    <div style= {style}>
+      I am Header
+    </div>
   )
 }
 
