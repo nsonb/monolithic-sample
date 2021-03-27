@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const IntroContainer = styled.div`
   border-radius: .5rem;
   overflow: hidden;
+  width: 100vw;
 
   & img {
     width: 100%;

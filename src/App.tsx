@@ -16,15 +16,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
-  const bodyStyle: React.CSSProperties = {
-    height: '70vh',
-    padding: '.5rem'
-  }
+  
   return (
     <ThemeProvider theme = {light_theme}>
       <GlobalStyle />
       <Header></Header>
-      <div style={bodyStyle}>
+      <div>
         <Intro/>
       </div>
       <Footer></Footer>
