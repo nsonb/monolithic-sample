@@ -1,12 +1,19 @@
 import styled from 'styled-components'
+import mystical_data from '../data/ZNE.json'
+import opt from '../img/jap_opt.jpg'
+import demonic_tutor from '../img/nihonga_Demonic_Tutor_art.jpg'
 
 const IntroContainer = styled.div`
-  border-radius: .5rem;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
+  position: relative;
+  height: 100vh;
 
   & img {
-    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -10rem;
+    width: 100vw;
     object-fit: cover;
     overflow: hidden;
     filter: sepia(.2)
@@ -14,14 +21,10 @@ const IntroContainer = styled.div`
 `
 
 const Intro = () => {
-  const food_img = [
-    'https://www.citypassguide.com/media/slideshow/northern-vietnamese-cuisine.jpg.1758x854_q85_crop.jpg',
-    "https://www.outlookindia.com/outlooktraveller/public/uploads/articles/explore/Vietnamese-food-spread.gif",
-    "https://duyt4h9nfnj50.cloudfront.net/resized/1543931229557-w2880-41.jpg"
-  ]
+  const card_img = [ opt , demonic_tutor ]
   return (
     <IntroContainer>
-      <img src={food_img[1]} alt="food"/>
+      <img src={card_img[0]} alt="japanese art for opt"/>
     </IntroContainer>
   )
 }

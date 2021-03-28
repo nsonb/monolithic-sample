@@ -9,7 +9,7 @@ const Container = styled.div`
 const Header = () => {
   return (
     <Container>
-      <Heading2>phoking</Heading2>
+      <Heading2>Master Archive</Heading2>
     </Container>
   )
 }
