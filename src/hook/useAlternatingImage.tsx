@@ -8,7 +8,7 @@ export const useAlternatingImage = (start: number, array: string[], interval: nu
         setImage(true)
     }, interval);
     return () => clearInterval(intervalId);
-  }, [current]);
+  }, [current, setCurrent, interval]);
 
   const setImage = (value: boolean) => {
     if(value === true) {
