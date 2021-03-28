@@ -20,7 +20,6 @@ const App = () => {
   return (
     <ThemeProvider theme = {light_theme}>
       <GlobalStyle />
-      <Header></Header>
       <div>
         <Intro/>
       </div>

@@ -1,6 +1,6 @@
 export const light_theme = {
-  primary: '#2E2222',
-  secondary: '#61733C',
+  primary: '#25415EF0',
+  secondary: '#FCEAC7',
   light: '#F2E3D5',
   dark: '#0D0D0D',
   white: '#FFF',

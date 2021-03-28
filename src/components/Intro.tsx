@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import mystical_data from '../data/ZNE.json'
 import opt from '../img/jap_opt.jpg'
 import demonic_tutor from '../img/nihonga_Demonic_Tutor_art.jpg'
+import sword from '../img/nihonga_Swords_to_Plowshares_art.jpg'
 
 const IntroContainer = styled.div`
   overflow: hidden;
@@ -12,19 +12,18 @@ const IntroContainer = styled.div`
   & img {
     position: absolute;
     left: 0;
-    top: -10rem;
+    top: -12%;
     width: 100vw;
     object-fit: cover;
     overflow: hidden;
-    filter: sepia(.2)
   }
 `
 
 const Intro = () => {
-  const card_img = [ opt , demonic_tutor ]
+  const card_img = [ opt , demonic_tutor, sword ]
   return (
     <IntroContainer>
-      <img src={card_img[0]} alt="japanese art for opt"/>
+      <img src={card_img[1]} alt="japanese art for opt"/>
     </IntroContainer>
   )
 }
