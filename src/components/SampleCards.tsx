@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 // styled component
-import { Container, Card } from './common/Container'
+import { Container } from './common/Container'
 import { Heading2 } from './common/Typography'
+import { Card } from './Card'
 
 // data
-import zneData from '../data/ZNE.json'
 import staData from '../data/STA.json'
 import { cardArray } from '../temp_img/ImageCrunch'
 
@@ -33,9 +33,10 @@ const SampleCards = () => {
         One place for all masterpieces
       </Heading2>
       <CardRow>
-        <Card src={cardArray[0].eng} key={cardArray[0].name}/>
-        <Card src={cardArray[1].eng} key={cardArray[1].name}/>
-        <Card src={cardArray[2].eng} key={cardArray[2].name}/>
+        <Card {...cardArray[0]}/>
+        <Card {...cardArray[1]}/>
+        <Card {...cardArray[2]}/>
+        
       </CardRow>
       
     </SampleContainer>
