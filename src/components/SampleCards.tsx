@@ -9,6 +9,9 @@ import { Card } from './Card'
 import staData from '../data/STA.json'
 import { cardArray } from '../temp_img/ImageCrunch'
 
+// custom hook
+import { useAlternatingSet } from '../hook/useAlternatingSet'
+
 const SampleContainer = styled(Container)`
   background-color: ${props => props.theme.dark};
 `
@@ -22,10 +25,7 @@ const CardRow = styled.div`
 `
 
 const SampleCards = () => {
-  console.log(cardArray.length)
-  staData.data.cards.map((i) => {
-    console.log(i.name)
-  })
+  const dsplayCard = useAlternatingSet([0, 1, 2], cardArray.length, 4000)
 
   return (
     <SampleContainer>
@@ -33,10 +33,9 @@ const SampleCards = () => {
         One place for all masterpieces
       </Heading2>
       <CardRow>
-        <Card {...cardArray[0]}/>
-        <Card {...cardArray[1]}/>
-        <Card {...cardArray[2]}/>
-        
+        { dsplayCard.map((i) => {
+          return <Card {...cardArray[i]} key={cardArray[i].name}/>
+        })}
       </CardRow>
       
     </SampleContainer>
