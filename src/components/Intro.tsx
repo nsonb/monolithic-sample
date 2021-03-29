@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { usePalette } from 'react-palette'
-import { useState } from 'react'
+import { PaletteColors, usePalette } from 'react-palette'
+import { useEffect, useState } from 'react'
 import { useAlternatingImage } from '../hook/useAlternatingImage'
 
 // images
@@ -9,14 +9,13 @@ import demonic_tutor from '../img/nihonga_Demonic_Tutor_art.jpg'
 import sword from '../img/nihonga_Swords_to_Plowshares_art.jpg'
 
 import { Title, Subtitle } from './common/Typography'
-import { Button } from './common/Interactable'
 
 
 const IntroContainer = styled.div`
   overflow: hidden;
   width: 95%;
   position: relative;
-  height:95vh;
+  height:40vh;
   border-radius: .5rem;
   margin: 1rem auto;
   transition: all 1s;
@@ -24,21 +23,7 @@ const IntroContainer = styled.div`
   &:hover{
   }
 `
-const Image = styled.img`
-  position: absolute;
-  left: 0;
-  top: -10rem;
-  width: 100%;  
-  object-fit: cover;
-  overflow: hidden;
-  transition: all 1s ease;
 
-  @media (max-width: 650px) {
-    width: fit-content;
-    height: 100%;
-    top: 0;
-  }
-`
 const FrontContainer = styled.div`
   position: relative;
   z-index: 5;
@@ -53,15 +38,35 @@ const FrontContainer = styled.div`
     border: 1px solid white;
   }
 `
+const Image = styled.img`
+  position: absolute;
+  left: 0;
+  top: -10rem;
+  width: 105%;  
+  object-fit: cover;
+  overflow: hidden;
+  transition: all 1s ease;
+
+  ${IntroContainer}:hover & {
+    width: 100%;
+  }
+
+  @media (max-width: 650px) {
+    width: fit-content;
+    height: 100%;
+    top: 0;
+  }
+`
+
 const TextContainer = styled.div`
   position: absolute;
   left: 50%;
-  top: 65%;
+  top: 55%;
   transform: translate(-50%, -50%); 
   transition: all 1s;
 
   ${FrontContainer}:hover & {
-    top: 60%;
+    top: 50%;
 
     & ${Title}{
       color: ${props => props.theme.primary};
@@ -75,15 +80,24 @@ const TextContainer = styled.div`
 const Intro = () => {
   const card_imgs = [ opt , demonic_tutor, sword ]
   const { current } = useAlternatingImage(0, card_imgs, 8000)
-  const { data } = usePalette(card_imgs[current])
-  const [ background, setBackground ] = useState({backgroundColor: data.lightMuted})
+
+  const { data: color1 } = usePalette(card_imgs[0])
+  const { data: color2 } = usePalette(card_imgs[1])
+  const { data: color3 } = usePalette(card_imgs[2])
   
+  const color_data = [ color1, color2, color3]
+  const [ background, setBackground ] = useState<string>(color_data[current].lightMuted + 'D9')
+
+  useEffect(() => {
+    setBackground(color_data[current].lightMuted + 'D9')
+  }, [current])
+
   return (
     <IntroContainer>
       <FrontContainer 
-        style={background}
-        onMouseEnter={() => {setBackground({backgroundColor: ''})}}
-        onMouseLeave={() => {setBackground({backgroundColor: data.lightMuted})}}
+        style={{backgroundColor: background}}
+        onMouseEnter={() => {setBackground(color_data[current].lightMuted + 'D9')}}
+        onMouseLeave={() => {setBackground(color_data[current].lightMuted + 'D9')}}
       >
         <TextContainer>
           <Subtitle>library of all masterpieces</Subtitle>
