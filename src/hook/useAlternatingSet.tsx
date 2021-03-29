@@ -11,15 +11,19 @@ export const useAlternatingSet = (start: number[], setNumber: number, interval: 
   const [ future, setFuture ] = useState<number[]>([])
 
   useEffect(() => {
+    setFuture(getFuture(current))
+  }, [])
+
+  useEffect(() => {
     const intervalId = setInterval(()=> {
       console.log(current)
       console.log(future)
       const temp = current;
-      //setCurrent(future)
-      //setFuture(getFuture(temp))
+      setCurrent(future)
+      setFuture(getFuture(temp))
     }, interval);
     return () => clearInterval(intervalId);
-  }, [current, setCurrent, interval]);
+  }, [current, future, interval]);
 
   const getFuture = (temp: number[]) => {
     let newFuture: number[] = []
