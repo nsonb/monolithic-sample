@@ -9,7 +9,7 @@ const Container = styled.div`
 const Footer = () => {
   return (
     <Container>
-      <Heading2>it's phoking good</Heading2>
+      <Heading2></Heading2>
     </Container>
   )
 }

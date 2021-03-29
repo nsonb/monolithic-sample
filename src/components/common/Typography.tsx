@@ -20,6 +20,7 @@ export const Title = styled.h1`
   padding: 1.2rem;
   border-radius: .5rem;
   line-height: 4rem;
+  transition: all 1s;
 `
 
 export const Subtitle = styled.h3`
@@ -31,4 +32,5 @@ export const Subtitle = styled.h3`
   font-size: 1rem;
   text-align: center;
   padding: .4rem;
+  transition: all 1s;
 `
