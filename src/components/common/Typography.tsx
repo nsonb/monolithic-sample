@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Heading2 = styled.h2`
   color: ${props => props.theme.white};
-  font-family: 'Lato', cursive;
+  font-family: 'Catamaran';
   font-weight: 700;
   width: fit-content;
-  margin: 0;
+  margin: 2rem;
 `
 
 export const Title = styled.h1`
@@ -33,4 +33,5 @@ export const Subtitle = styled.h3`
   text-align: center;
   padding: .4rem;
   transition: all 1s;
+  text-transform: uppercase;
 `

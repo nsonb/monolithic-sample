@@ -1,5 +1,6 @@
 import Footer from './components/Footer'
 import Intro from './components/Intro'
+import SampleCards from './components/SampleCards'
 
 import { ThemeProvider } from 'styled-components'
 import { light_theme } from './components/common/Theme'
@@ -21,6 +22,7 @@ const App = () => {
       <GlobalStyle />
       <div>
         <Intro/>
+        <SampleCards></SampleCards>
       </div>
       <Footer></Footer>
     </ThemeProvider>

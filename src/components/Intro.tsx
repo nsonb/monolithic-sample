@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { PaletteColors, usePalette } from 'react-palette'
+import { usePalette } from 'react-palette'
 import { useEffect, useState } from 'react'
 import { useAlternatingImage } from '../hook/useAlternatingImage'
 
@@ -9,21 +9,12 @@ import demonic_tutor from '../img/nihonga_Demonic_Tutor_art.jpg'
 import sword from '../img/nihonga_Swords_to_Plowshares_art.jpg'
 
 import { Title, Subtitle } from './common/Typography'
+import { Container } from './common/Container'
 
-
-const IntroContainer = styled.div`
-  overflow: hidden;
+const IntroContainer = styled(Container)`
   width: 95%;
-  position: relative;
-  height:40vh;
   border-radius: .5rem;
-  margin: 1rem auto;
-  transition: all 1s;
-
-  &:hover{
-  }
 `
-
 const FrontContainer = styled.div`
   position: relative;
   z-index: 5;
@@ -49,11 +40,14 @@ const Image = styled.img`
 
   ${IntroContainer}:hover & {
     width: 100%;
+    top: -8rem;
+    transform: translateX(.2%)
   }
 
   @media (max-width: 650px) {
     width: fit-content;
     height: 100%;
+    width: 100%;
     top: 0;
   }
 `
@@ -86,18 +80,24 @@ const Intro = () => {
   const { data: color3 } = usePalette(card_imgs[2])
   
   const color_data = [ color1, color2, color3]
+  // state
   const [ background, setBackground ] = useState<string>(color_data[current].lightMuted + 'D9')
+  const [ isHover, setIsHover ] = useState(false)
 
   useEffect(() => {
-    setBackground(color_data[current].lightMuted + 'D9')
-  }, [current])
+    if(isHover){ 
+      setBackground('')
+    } else {
+      setBackground(color_data[current].lightMuted + 'D9'); 
+    }
+   }, [current, isHover])
 
   return (
     <IntroContainer>
       <FrontContainer 
         style={{backgroundColor: background}}
-        onMouseEnter={() => {setBackground(color_data[current].lightMuted + 'D9')}}
-        onMouseLeave={() => {setBackground(color_data[current].lightMuted + 'D9')}}
+        onMouseEnter={() => {setIsHover(true)}}
+        onMouseLeave={() => {setIsHover(false)}}
       >
         <TextContainer>
           <Subtitle>library of all masterpieces</Subtitle>
