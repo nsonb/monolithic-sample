@@ -25,7 +25,7 @@ const CardRow = styled.div`
 `
 
 const SampleCards = () => {
-  const dsplayCard = useAlternatingSet([0, 1, 2], cardArray.length, 4000)
+  const { current, future } = useAlternatingSet([0, 1, 2], cardArray.length, 2000)
 
   return (
     <SampleContainer>
@@ -33,7 +33,7 @@ const SampleCards = () => {
         One place for all masterpieces
       </Heading2>
       <CardRow>
-        { dsplayCard.map((i) => {
+        { current.map((i) => {
           return <Card {...cardArray[i]} key={cardArray[i].name}/>
         })}
       </CardRow>

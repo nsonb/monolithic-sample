@@ -10,22 +10,29 @@ export const useAlternatingSet = (start: number[], setNumber: number, interval: 
   const [ current, setCurrent ] = useState<number[]>(start)
   const [ future, setFuture ] = useState<number[]>([])
 
-  let temp: number[] = []
-
   useEffect(() => {
     const intervalId = setInterval(()=> {
-      console.log('....')
+      console.log(current)
+      console.log(future)
+      const temp = current;
+      //setCurrent(future)
+      //setFuture(getFuture(temp))
     }, interval);
     return () => clearInterval(intervalId);
   }, [current, setCurrent, interval]);
 
-  for(var i = 0; i < start.length; i++) {
-    let m = -2;
-    do {
-      m = getRandomInt(0, setNumber-1)
-    } while(current.includes(m) || temp.includes(m))
-    temp.push(m)
+  const getFuture = (temp: number[]) => {
+    let newFuture: number[] = []
+    for(var i = 0; i < start.length; i++) {
+      let m = -2;
+      do {
+        m = getRandomInt(0, setNumber-1)
+      } while(temp.includes(m) || newFuture.includes(m))
+      newFuture.push(m)
+    }
+    return newFuture
   }
-  return temp
+  
+  return { current, future }
 
 }
