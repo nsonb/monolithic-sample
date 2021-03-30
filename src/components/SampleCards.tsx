@@ -8,30 +8,24 @@ import { fade_in, fade_out } from './common/Keyframe'
 
 // data
 import staData from '../data/STA.json'
-import { cardArray } from '../temp_img/ImageCrunch'
+import { cardArray, card_img_data } from '../temp_img/ImageCrunch'
 
 // custom hook
-import { useAlternatingSet } from '../hook/useAlternatingSet'
+import { useAlternatingImage } from '../hook/useAlternatingImage'
 
 const SampleContainer = styled(Container)`
   background-color: ${props => props.theme.dark};
 `
-/*
-  
-*/
+
 const CardRow = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width:80%;
   padding: .8rem 3rem;
   justify-content: space-between;
+  margin: 2rem auto;
 `
-const duration = 8000
-
+/*
 const CurrentCardRow = styled(CardRow)`
   animation-name: ${fade_out};
   animation-duration: ${duration}ms;
@@ -45,27 +39,34 @@ const FutureCardRow = styled(CardRow)`
   animation-iteration-count: infinite;
   animation-timing-function: ease;
 `
+const duration = 8000
+*/
+const arrayToStep = (start: number, step: number, array: card_img_data[]) => {
+  let returned_array: card_img_data[] = []
+  let i = start
+  while (i< array.length) {
+    returned_array.push(array[i])
+    i = i + step
+  }
+  return returned_array;
+} 
 
 const SampleCards = () => {
-  const { current, future } = useAlternatingSet([0, 1, 2], cardArray.length, duration)
-  console.log(current)
-  console.log(future)
+  const first_set = arrayToStep(0, 3, cardArray)
+  const second_set = arrayToStep(1, 3, cardArray)
+  const third_set = arrayToStep(2, 3, cardArray)
+  console.log(first_set[22])
   return (
     <SampleContainer>
       <Heading2>
         One place for all masterpieces
       </Heading2>
       <div style={{height: '80%', width: '100%', position: 'relative'}}>
-        <CurrentCardRow>
-          { current.map((i) => {
-            return <Card {...cardArray[i]} key={cardArray[i].name}/>
-          })}
-        </CurrentCardRow>
-        <FutureCardRow>
-          { future.map((i) => {
-            return <Card {...cardArray[i]} key={cardArray[i].name}/>
-          })}
-        </FutureCardRow>
+        <CardRow>
+          <Card cards={first_set}/>
+          <Card cards={second_set}/>
+          <Card cards={third_set}/>
+        </CardRow>
       </div>
     </SampleContainer>
   )

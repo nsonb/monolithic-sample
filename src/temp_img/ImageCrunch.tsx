@@ -1,7 +1,13 @@
 // import staData from '../data/STA.json'
 // https://cardgamebase.com/wp-content/uploads/
 const default_route = 'https://cardgamebase.com/wp-content/uploads/';
-export const cardArray = [
+
+export interface card_img_data {
+  name: string,
+  eng: string,
+  jap: string
+}
+export const cardArray: card_img_data[] = [
   {
     name: 'Approach of the Second Sun',
     eng: default_route+'Approach-of-the-Second-Sun-Mystical-Archive-Cards-List-MTG.jpg',
