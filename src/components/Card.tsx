@@ -3,19 +3,17 @@ import styled from "styled-components";
 import { card_img_data } from '../temp_img/ImageCrunch'
 import { useAlternatingImage } from '../hook/useAlternatingImage'
 
+// using scss solution for the rotating for now
 const CardContainer = styled.div`
   width: 23rem;
   position: relative;
   height: 100%;
-  border-radius: .8rem;
+  border-radius: 1rem;
   perspective: 100rem;
     -webkit-perspective: 100rem;
     -moz-perspective: 100rem;
   transition: all .8s;  
-  &:hover {
-    translateY(-.5rem);
-  }
-
+  
   & .face {
     cursor: pointer;
     box-shadow: 1px 1px 15px -8px #fff;
@@ -25,7 +23,7 @@ const CardContainer = styled.div`
     top: 0;
     width: 23rem;
     transition: all .6s;
-    border-radius: .7rem;
+    border-radius: 1rem;
 
     &__front {
       &--flipped {
@@ -78,7 +76,6 @@ export const Card = (props: {cards: card_img_data[]}) => {
                 className={`face face__back ${flipped? 'face__back--flipped' : ''}`}
               />
             </div>
-            
           )
         })
       }

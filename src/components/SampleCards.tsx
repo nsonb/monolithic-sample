@@ -15,7 +15,7 @@ import { useAlternatingImage } from '../hook/useAlternatingImage'
 
 const SampleContainer = styled(Container)`
   background-color: ${props => props.theme.dark};
-  height: 60rem;
+  height: 48rem;
 `
 
 const CardRow = styled.div`
