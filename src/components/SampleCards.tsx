@@ -22,6 +22,7 @@ const CardRow = styled.div`
   display: flex;
   flex-direction: row;
   width:80%;
+  height: 90%;
   padding: .8rem 3rem;
   justify-content: space-between;
   margin: 2rem auto;

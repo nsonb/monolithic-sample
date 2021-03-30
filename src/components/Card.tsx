@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { card_img_data } from '../temp_img/ImageCrunch'
 import { useAlternatingImage } from '../hook/useAlternatingImage'
 
+const Title = styled.h3`
+  color: white;
+  padding: .8rem;
+`
 // using scss solution for the rotating for now
 const CardContainer = styled.div`
   width: 23rem;
@@ -12,7 +16,15 @@ const CardContainer = styled.div`
   perspective: 100rem;
     -webkit-perspective: 100rem;
     -moz-perspective: 100rem;
-  transition: all .8s;  
+  transition: all .8s;
+
+  & ${Title} {
+    position: absolute;
+    left: 50%;
+    bottom: -3rem;
+    height: 3rem;
+    transform: translateX(-50%)
+  }
   
   & .face {
     cursor: pointer;
@@ -24,6 +36,7 @@ const CardContainer = styled.div`
     width: 23rem;
     transition: all .6s;
     border-radius: 1rem;
+    height: 100%;
 
     &__front {
       &--flipped {
@@ -67,6 +80,9 @@ export const Card = (props: {cards: card_img_data[]}) => {
               }} 
               key={i.name}
             >
+              <Title>
+                {i.name}
+              </Title>
               <img 
                 src={i.eng}
                 className= {`face face__front ${flipped? 'face__front--flipped' : ''}`}
