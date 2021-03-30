@@ -6,24 +6,31 @@ const getRandomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+interface StateType {
+  current: number[],
+  future: number[]
+}
+
 export const useAlternatingSet = (start: number[], setNumber: number, interval: number) => {
-  const [ current, setCurrent ] = useState<number[]>(start)
-  const [ future, setFuture ] = useState<number[]>([])
+  const x: StateType = { current : start, future : []}
+  console.log(x)
+  const [ current_future, setCurrent ] = useState<StateType>(x)
 
   useEffect(() => {
-    setFuture(getFuture(current))
+    const temp_future = getFuture(current_future.current)
+    const temp_value = { current : x.current, future : temp_future}
+    setCurrent(temp_value)
   }, [])
 
   useEffect(() => {
     const intervalId = setInterval(()=> {
-      console.log(current)
-      console.log(future)
-      const temp = current;
-      setCurrent(future)
-      setFuture(getFuture(temp))
+      const temp_current = current_future.future
+      const temp_future = getFuture(current_future.current)
+      const temp_value = { current : temp_current, future : temp_future}
+      setCurrent(temp_value)
     }, interval);
     return () => clearInterval(intervalId);
-  }, [current, future, interval]);
+  }, [current_future]);
 
   const getFuture = (temp: number[]) => {
     let newFuture: number[] = []
@@ -37,6 +44,6 @@ export const useAlternatingSet = (start: number[], setNumber: number, interval: 
     return newFuture
   }
   
-  return { current, future }
+  return { current: current_future.current, future: current_future.future }
 
 }

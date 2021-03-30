@@ -90,7 +90,7 @@ const Intro = () => {
     } else {
       setBackground(color_data[current].lightMuted + 'D9'); 
     }
-   }, [current, isHover])
+   }, [current, isHover, color_data])
 
   return (
     <IntroContainer>
