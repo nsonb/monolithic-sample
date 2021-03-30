@@ -61,7 +61,7 @@ export const cardArray: card_img_data[] = [
   },
   {
     name: `Teferi's Protection`,
-    eng: default_route+'https://cdn1.mtggoldfish.com/images/h/Teferis-Protection-STA-672.jpg',
+    eng: 'https://mtgazone.com/wp-content/uploads/2021/03/011-Mystical-Archives-Spoiler-Card-1.png',
     jap: default_route+'11-Teferis-Protection.jpg'
   },
   {
