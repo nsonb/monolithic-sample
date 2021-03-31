@@ -4,14 +4,9 @@ import styled from 'styled-components'
 import { Container } from './common/Container'
 import { Heading2 } from './common/Typography'
 import { Card } from './Card'
-import { fade_in, fade_out } from './common/Keyframe'
 
 // data
-import staData from '../data/STA.json'
 import { cardArray, card_img_data } from '../temp_img/ImageCrunch'
-
-// custom hook
-import { useAlternatingImage } from '../hook/useAlternatingImage'
 
 const SampleContainer = styled(Container)`
   background-color: ${props => props.theme.dark};
@@ -21,9 +16,10 @@ const SampleContainer = styled(Container)`
 const CardRow = styled.div`
   display: flex;
   flex-direction: row;
-  width:80%;
+  width: 80%;
+  min-width: fit-content;
   height: 90%;
-  padding: .8rem 3rem;
+  padding: .8rem 1rem;
   justify-content: space-between;
   margin: 2rem auto;
 `
@@ -57,6 +53,7 @@ const SampleCards = () => {
   const first_set = arrayToStep(0, 3, cardArray)
   const second_set = arrayToStep(1, 3, cardArray)
   const third_set = arrayToStep(2, 3, cardArray)
+  //const forth_set = arrayToStep(3, 4, cardArray)
   console.log(first_set[22])
   return (
     <SampleContainer>
@@ -68,6 +65,7 @@ const SampleCards = () => {
           <Card cards={first_set}/>
           <Card cards={second_set}/>
           <Card cards={third_set}/>
+          {/*<Card cards={forth_set}/>*/}
         </CardRow>
       </div>
     </SampleContainer>

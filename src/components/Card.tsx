@@ -17,13 +17,20 @@ const CardContainer = styled.div`
     -webkit-perspective: 100rem;
     -moz-perspective: 100rem;
   transition: all .8s;
+  margin-right: .5rem;
+  
+  &:hover {
+    transform: translateY(-.5rem);
+  }
 
   & ${Title} {
     position: absolute;
     left: 50%;
     bottom: -3rem;
     height: 3rem;
-    transform: translateX(-50%)
+    width: fit-content;
+    transform: translateX(-50%);
+    color: ${props => props.theme.light};
   }
   
   & .face {
