@@ -28,7 +28,6 @@ const CardContainer = styled.div`
   
   & .face {
     cursor: pointer;
-    box-shadow: 1px 1px 15px -8px #fff;
     backface-visibility: hidden;
     position: absolute;
     left: 0;
@@ -39,6 +38,7 @@ const CardContainer = styled.div`
     height: 100%;
 
     &__front {
+      box-shadow: 1px 1px 15px -8px #fff;
       &--flipped {
         transform: rotateY(180deg);
     
@@ -50,7 +50,7 @@ const CardContainer = styled.div`
 
     &__back {
       transform: rotateY(-180deg);
-
+      box-shadow: 1px 1px 15px -8px #fff;
       &--flipped {
         transform: rotateY(0);
 
@@ -83,11 +83,13 @@ export const Card = (props: {cards: card_img_data[]}) => {
               <Title>
                 {i.name}
               </Title>
-              <img 
+              <img
+                alt={'card english for' + i.name}
                 src={i.eng}
                 className= {`face face__front ${flipped? 'face__front--flipped' : ''}`}
               />
               <img
+                alt={'card japanese for' + i.name}
                 src={i.jap} 
                 className={`face face__back ${flipped? 'face__back--flipped' : ''}`}
               />
