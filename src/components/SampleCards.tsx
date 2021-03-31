@@ -54,7 +54,6 @@ const SampleCards = () => {
   const second_set = arrayToStep(1, 3, cardArray)
   const third_set = arrayToStep(2, 3, cardArray)
   //const forth_set = arrayToStep(3, 4, cardArray)
-  console.log(first_set[22])
   return (
     <SampleContainer>
       <Heading2>

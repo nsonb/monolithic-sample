@@ -17,7 +17,7 @@ const CardContainer = styled.div`
     -webkit-perspective: 100rem;
     -moz-perspective: 100rem;
   transition: all .8s;
-  margin-right: .5rem;
+  margin: auto;
   margin-bottom: 4rem;
   
   &:hover {
