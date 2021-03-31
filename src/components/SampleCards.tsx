@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // styled component
 import { Container } from './common/Container'
 import { Heading2 } from './common/Typography'
-import { Card } from './Card'
+import { ShowcaseCard } from './Card'
 
 // data
 import { cardArray, card_img_data } from '../temp_img/ImageCrunch'
@@ -62,9 +62,9 @@ const SampleCards = () => {
       </Heading2>
       <div style={{height: '80%', width: '100%', position: 'relative'}}>
         <CardRow>
-          <Card cards={first_set}/>
-          <Card cards={second_set}/>
-          <Card cards={third_set}/>
+          <ShowcaseCard cards={first_set}/>
+          <ShowcaseCard cards={second_set}/>
+          <ShowcaseCard cards={third_set}/>
           {/*<Card cards={forth_set}/>*/}
         </CardRow>
       </div>
